@@ -5,7 +5,11 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/excel">导入excel</router-link> |
       <router-link to="/excel1">导出excel</router-link>
-      <router-link to="/echarts">echarts</router-link>
+      <router-link to="/echarts">echarts</router-link>|
+      <router-link to="/biaodan">表单</router-link>|
+      <router-link to="/elupload" style="color:red;font-size:16px">上传文件</router-link>
+      <router-link to="/pagination">分页</router-link>
+
 <br>
 <hr>
       <router-link to="/liu">刘</router-link>
