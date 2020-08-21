@@ -67,6 +67,16 @@ const routes = [
     path: '/pagination',
     name: 'pagination',
     component: () => import('../views/pagination.vue')
+  },
+  {
+    path: '/uploadImg',
+    name: 'uploadImg',
+    component: () => import('../views/uploadImg.vue')
+  },
+  {
+    path: '/quill',
+    name: 'quill',
+    component: () => import('../views/quill.vue')
   }
 
 ]

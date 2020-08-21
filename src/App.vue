@@ -7,8 +7,10 @@
       <router-link to="/excel1">导出excel</router-link>
       <router-link to="/echarts">echarts</router-link>|
       <router-link to="/biaodan">表单</router-link>|
-      <router-link to="/elupload" style="color:red;font-size:16px">上传文件</router-link>
-      <router-link to="/pagination">分页</router-link>
+      <router-link to="/elupload" style="color:red;font-size:16px">上传文件</router-link>|
+      <router-link to="/pagination">分页</router-link>|
+      <router-link to="/uploadImg">上传图片</router-link>|
+      <router-link to="/quill">富文本</router-link>
 
 <br>
 <hr>
@@ -19,6 +21,9 @@
   </div>
 </template>
 
+<style lang="stylus">
+  @import "assets/css/font.css"
+</style>
 <style lang="less">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -40,4 +45,5 @@
     }
   }
 }
+
 </style>
