@@ -1,16 +1,28 @@
 module.exports = {
-//   productionSourceMap: false,
+  //   productionSourceMap: false,
   devServer: {
     proxy: {
-      '/api': {
-        target: 'http://localhost:8888',
+
+      // '/api': {
+      //   target: 'http://localhost:8888',
+      //   changeOrigin: true,
+      //   secure: false,
+      //   // ws: true,
+      //   pathRewrite: {
+      //     '^/api': ''// 请求数据路径别名
+      //   }
+      // },
+      '/api1': {
+        // http://localhost:6666/heroes
+        target: 'https://jsonplaceholder.typicode.com',
         changeOrigin: true,
-        secure: false,
+        secure: true,
         // ws: true,
         pathRewrite: {
-          '^/api': ''// 请求数据路径别名
+          '^/api1': ''// 请求数据路径别名
         }
       }
+
     }
   }
 }

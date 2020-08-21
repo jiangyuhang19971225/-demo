@@ -3,7 +3,7 @@
     上传图片
     <el-upload
       class="avatar-uploader"
-      action="https://www.mocky.io/v2/5185415ba171ea3a00704eed/posts/"
+      action="/api1/posts/"
       :show-file-list="false"
       :on-success="handleAvatarSuccess"
       :before-upload="beforeAvatarUpload"
@@ -12,6 +12,7 @@
       <i v-else class="el-icon-plus avatar-uploader-icon"></i>
     </el-upload>
   </div>
+  <!-- action="https://www.mocky.io/v2/5185415ba171ea3a00704eed/posts/" -->
 </template>
 
 <script>
@@ -20,7 +21,6 @@ export default {
     return {
       imageUrl: '',
       set: ''
-
     }
   },
   methods: {
@@ -48,6 +48,11 @@ export default {
   beforeDestroy () {
     clearInterval(this.set) // 清除定时器
     this.set = null
+  },
+  created () {
+    this.$axios.get('/api/fruits').then((res) => {
+      console.log('localhost:8888', res)
+    })
   }
 }
 </script>
