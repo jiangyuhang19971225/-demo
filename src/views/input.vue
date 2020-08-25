@@ -6,7 +6,8 @@
       placeholder="请输入要搜索的内容"
       @select="handleSelect"
       clearable
-      suffix-icon="el-icon-search"
+      prefix-icon="el-icon-search"
+      value-key="address"
     ></el-autocomplete>
   </div>
 </template>
@@ -49,7 +50,8 @@ export default {
         : restaurants
 
       console.log('results', results)
-      cb(results) // 下拉列表的显示
+      // 下拉列表的显示
+      cb(results)
       //   clearTimeout(this.timeout)
       //   this.timeout = setTimeout(() => {
 
@@ -58,12 +60,16 @@ export default {
     createStateFilter (queryString) {
       return (state) => {
         console.log('state', state)
+        console.log('state', state.value.toLowerCase())
+
         return (
-          state.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0
+          state.address.toLowerCase().indexOf(queryString.toLowerCase()) === 0
         )
       }
     },
+    // 搜索框选中的值
     handleSelect (item) {
+      console.log('state' + this.state)
       console.log(item)
     }
   },
