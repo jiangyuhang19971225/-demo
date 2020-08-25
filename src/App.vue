@@ -1,28 +1,48 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/excel">导入excel</router-link> |
+      <router-link to="/">Home</router-link>|
+      <router-link to="/about">About</router-link>|
+      <router-link to="/excel">导入excel</router-link>|
       <router-link to="/excel1">导出excel</router-link>
       <router-link to="/echarts">echarts</router-link>|
       <router-link to="/biaodan">表单</router-link>|
       <router-link to="/elupload" style="color:red;font-size:16px">上传文件</router-link>|
       <router-link to="/pagination">分页</router-link>|
       <router-link to="/uploadImg">上传图片</router-link>|
-      <router-link to="/quill">富文本</router-link>
+      <!-- <router-link to="/quill">富文本</router-link> -->
+      <el-button type="success" @click="click">富文本</el-button>
 
-<br>
-<hr>
+      <router-link to="/input">
+        <el-button>搜索框</el-button>
+      </router-link>
+      <br />
+      <hr />
       <router-link to="/liu">刘</router-link>
-
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+<script>
+export default {
+  data () {
+    return {}
+  },
+  methods: {
+    click () {
+      this.$router.push({
+        name: 'quill',
+        params: {
+          id: 1
+        }
+      })
+    }
+  }
+}
+</script>
 
 <style lang="stylus">
-  @import "assets/css/font.css"
+@import 'assets/css/font.css';
 </style>
 <style lang="less">
 #app {
@@ -45,5 +65,4 @@
     }
   }
 }
-
 </style>

@@ -9,11 +9,13 @@
       @change="onEditorChange($event)"
     ></quill-editor>
     <button v-on:click="saveHtml">保存</button>
+    {{data}}
     <div v-html="content"></div>
   </div>
 </template>
 
 <script>
+import { getNowDate } from '@/apis/fun.js'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
@@ -35,6 +37,7 @@ export default {
   name: 'App',
   data () {
     return {
+      data: '',
       toolbarTips: [
         { Choice: '.ql-bold', title: '加粗' },
         { Choice: '.ql-italic', title: '倾斜' },
@@ -164,6 +167,10 @@ export default {
       if (!tip) continue
       tip.setAttribute('title', item.title)
     }
+  },
+  created () {
+    console.log('id=' + this.$route.params.id)
+    this.data = getNowDate()
   }
 }
 </script>

@@ -74,9 +74,14 @@ const routes = [
     component: () => import('../views/uploadImg.vue')
   },
   {
-    path: '/quill',
+    path: '/quill/:id',
     name: 'quill',
     component: () => import('../views/quill.vue')
+  },
+  {
+    path: '/input',
+    name: 'input',
+    component: () => import('../views/input.vue')
   }
 
 ]

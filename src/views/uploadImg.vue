@@ -7,6 +7,7 @@
       :show-file-list="false"
       :on-success="handleAvatarSuccess"
       :before-upload="beforeAvatarUpload"
+      :headers="tokenHeader"
     >
       <img v-if="imageUrl" :src="imageUrl" class="avatar" />
       <i v-else class="el-icon-plus avatar-uploader-icon"></i>
@@ -20,7 +21,8 @@ export default {
   data () {
     return {
       imageUrl: '',
-      set: ''
+      set: '',
+      tokenHeader: {}
     }
   },
   methods: {
@@ -53,6 +55,7 @@ export default {
     this.$axios.get('/api/fruits').then((res) => {
       console.log('localhost:8888', res)
     })
+    this.tokenHeader = { Xdsdoken: 11111 }
   }
 }
 </script>
