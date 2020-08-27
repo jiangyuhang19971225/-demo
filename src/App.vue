@@ -19,6 +19,8 @@
       <br />
       <hr />
       <router-link to="/liu">刘</router-link>
+      <router-link to="/vuex"><h3> vuex</h3></router-link>
+
     </div>
     <router-view />
   </div>

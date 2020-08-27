@@ -82,6 +82,11 @@ const routes = [
     path: '/input',
     name: 'input',
     component: () => import('../views/input.vue')
+  },
+  {
+    path: '/vuex',
+    name: 'vuex',
+    component: () => import('../views/vuex/index')
   }
 
 ]

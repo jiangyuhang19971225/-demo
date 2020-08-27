@@ -1,15 +1,15 @@
 <template>
   <div>
-      <!-- //  drag 拖拽上传 -->
-      <!-- multiple  是否支持多文件上传 -->
+    <!-- //  drag 拖拽上传 -->
+    <!-- multiple  是否支持多文件上传 -->
     <el-upload
       class="upload-demo"
       drag
       action="https://jsonplaceholder.typicode.com/posts/"
       :multiple="false"
-      :http-request="upLoad"
       :on-change="changeFlie"
       :before-upload="bfUpload"
+      :data="insertProgram"
     >
       <i class="el-icon-upload"></i>
       <div class="el-upload__text">
@@ -22,11 +22,12 @@
 </template>
 
 <script>
-
 export default {
   data () {
     return {
-
+      insertProgram: {
+        liveId: 111
+      }
     }
   },
   methods: {
@@ -42,10 +43,6 @@ export default {
       const ss = file.name
       const suffix = file.name.substring(ss.indexOf('.') + 1)
       console.log(suffix)
-    },
-    // 上传文件
-    upLoad () {
-
     }
   }
 }

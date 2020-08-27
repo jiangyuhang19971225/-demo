@@ -7,7 +7,7 @@
       @select="handleSelect"
       clearable
       prefix-icon="el-icon-search"
-      value-key="address"
+
     ></el-autocomplete>
   </div>
 </template>
@@ -63,7 +63,7 @@ export default {
         console.log('state', state.value.toLowerCase())
 
         return (
-          state.address.toLowerCase().indexOf(queryString.toLowerCase()) === 0
+          state.value.toLowerCase().indexOf(queryString.toLowerCase()) !== -1
         )
       }
     },
