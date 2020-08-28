@@ -11,8 +11,10 @@
       <router-link to="/pagination">分页</router-link>|
       <router-link to="/uploadImg">上传图片</router-link>|
       <!-- <router-link to="/quill">富文本</router-link> -->
-      <el-button type="success" @click="click">富文本</el-button>
-
+      <el-button type="success" @click="click">富文本</el-button>|
+<router-link to="/slot">
+        <el-button>插槽的使用</el-button>|
+      </router-link>
       <router-link to="/input">
         <el-button>搜索框</el-button>
       </router-link>
@@ -22,7 +24,9 @@
       <router-link to="/vuex"><h3> vuex</h3></router-link>
 
     </div>
+    <div class="content">
     <router-view />
+    </div>
   </div>
 </template>
 <script>
@@ -66,5 +70,9 @@ export default {
       color: #42b983;
     }
   }
+}
+.content {
+  padding: 50px;
+  background-color: rgb(240, 231, 231);
 }
 </style>

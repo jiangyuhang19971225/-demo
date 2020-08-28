@@ -87,6 +87,11 @@ const routes = [
     path: '/vuex',
     name: 'vuex',
     component: () => import('../views/vuex/index')
+  },
+  {
+    path: '/slot',
+    name: 'slot',
+    component: () => import('../views/slot/slot.vue')
   }
 
 ]
