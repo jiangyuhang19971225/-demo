@@ -15,13 +15,16 @@
           @focus="focus"
           @blur="blur"
         ></el-autocomplete>
+        <el-collapse-transition>
+
         <div class="history" v-if="dataShow">
-          <div v-on:click="clearHistory()" class="clearHistoryBox">
+          <div class="clearHistoryBox">
             <span>搜索历史</span>
-            <span>清空</span>
+            <span v-on:click="clearHistory()">清空</span>
           </div>
           <div v-for="(item,index) in data" :key="index" class="clearHistoryBoxBrothers">{{item}}</div>
         </div>
+        </el-collapse-transition>
       </div>
     </div>
     <el-tabs v-model="first" @tab-click="handleClick" v-if="tabBoolean">
@@ -37,6 +40,7 @@
 export default {
   data () {
     return {
+      timer: null,
       dataShow: false,
       data: null,
       tabBoolean: false,
@@ -493,13 +497,14 @@ export default {
       this.data = null
       this.dataShow = false
       this.arr = []
+      console.log('清空this.data', this.data)
     },
     // 失去焦点
     blur () {
-      const timer = setTimeout(() => {
+      console.log('失去焦点')
+      this.timer = setTimeout(() => {
         this.dataShow = false
-      }, 500)
-      clearTimeout(timer)
+      }, 150)
     },
     // 获得焦点
     focus () {
@@ -508,7 +513,8 @@ export default {
       console.log('dataShow', this.data)
       this.data = [...new Set(this.data)]
       console.log('去重', this.data)
-      if (this.data) {
+      if (this.data.length) {
+        console.log('优质')
         this.dataShow = true
       }
     },
@@ -518,6 +524,7 @@ export default {
     },
     // 回车触发事件
     submit () {
+      this.dataShow = false
       console.log('回撤触发', this.state)
       this.tabBoolean = !this.tabBoolean
 
@@ -582,10 +589,13 @@ export default {
   },
   mounted () {
     this.restaurants = this.loadAll()
+  },
+  beforeDestroy () {
+    clearTimeout(this.timer)
   }
 }
 </script>
-<style lang="stylus">
+<style>
 .el-tabs__item.is-active {
   font-weight: bold;
 }
@@ -594,6 +604,7 @@ export default {
 <style scoped>
 .box {
   width: 60%;
+  position: relative;
 }
 .el-autocomplete {
   width: 100%;
@@ -603,19 +614,21 @@ export default {
   margin-top: 10px;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
   padding: 5px 10px;
+  position:absolute;
+  z-index: 99;
+  width: 100%;
 }
 .clearHistoryBox {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   padding: 10px 10px;
   color: #c4c6cc;
-  font-size:14px;
-  border-bottom:1px solid #f0f1f5
-
+  font-size: 14px;
+  border-bottom: 1px solid #f0f1f5;
 }
 .clearHistoryBoxBrothers {
   padding: 10px 10px;
-  font-size:14px;
+  font-size: 14px;
   text-align: left;
 }
 .clearHistoryBoxBrothers:hover {
@@ -623,6 +636,6 @@ export default {
   color: #3a84ff;
 }
 .clearHistoryBox span:last-child {
-cursor: pointer;
+  cursor: pointer;
 }
 </style>

@@ -75,4 +75,7 @@ export default {
   padding: 50px;
   // background-color: rgb(240, 231, 231);
 }
+div {
+    box-sizing: border-box;
+}
 </style>
