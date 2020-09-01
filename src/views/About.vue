@@ -24,14 +24,14 @@ export default {
     // 监听 msg1_Watch ，当 msg1_Watch 发生变化的时候执行
     msg1_Watch (curVal, oldVal) {
       if (curVal) {
-        console.log('侦听器执行一次，改变结果为：', curVal)
+        console.log('侦听器1行一次，改变结果为：', curVal)
         this.msg_Watch = this.msg1_Watch + ' ' + this.msg2_Watch
       }
     },
     // 监听 msg2_Watch ，当 msg2_Watch 发生变化的时候执行
     msg2_Watch (curVal, oldVal) {
       if (curVal) {
-        console.log('侦听器执行一次，改变结果为：', curVal)
+        console.log('侦听器2执行一次，改变结果为：', curVal)
         this.msg_Watch = this.msg1_Watch + ' ' + this.msg2_Watch
       }
     }

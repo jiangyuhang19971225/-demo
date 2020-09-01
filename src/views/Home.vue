@@ -4,7 +4,7 @@
     <button type="button" @click="submit">提交</button>
     <button type="button" @click="getProjects">过去</button>
     <div>img url 转base64</div>
-    <img alt="Vue logo" src="../assets/logo.png"  ref='myBox'/>
+    <!-- <img alt="Vue logo" src="../assets/logo.png"  ref='myBox'/> -->
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>

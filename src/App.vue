@@ -18,14 +18,14 @@
       <router-link to="/input">
         <el-button>搜索框</el-button>
       </router-link>
-      <br />
-      <hr />
+
       <router-link to="/liu">刘</router-link>
       <router-link to="/vuex"><h3> vuex</h3></router-link>
 
     </div>
     <div class="content">
-    <router-view />
+      <hr>
+    <router-view style="margin-top:50px"/>
     </div>
   </div>
 </template>
@@ -73,6 +73,6 @@ export default {
 }
 .content {
   padding: 50px;
-  background-color: rgb(240, 231, 231);
+  // background-color: rgb(240, 231, 231);
 }
 </style>

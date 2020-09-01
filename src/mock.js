@@ -30,3 +30,13 @@ Mock.mock('/mock/addProject', ops => { // 拦截ajax请求，调用函数
 })
 // 获取信息
 Mock.mock('/mock/projects', projectList)
+Mock.mock(
+  'http://mockjs_two', {
+    'tableData|15-20': [{
+      'id|+1': 1, // 模拟id 序号
+      name: '@cname', // 中文名
+      title: '@ctitle',
+      paragraph1: '@cparagraph(2)'
+
+    }]
+  })
