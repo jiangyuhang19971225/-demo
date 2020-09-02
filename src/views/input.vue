@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="bigBox">
+    <div :class="divBox?'divBox1':'divBox2'"></div>
     <div style="width:100%;display:flex; justify-content: center;">
       <div class="box">
         <el-autocomplete
@@ -16,19 +17,67 @@
           @blur="blur"
         ></el-autocomplete>
         <el-collapse-transition>
-
-        <div class="history" v-if="dataShow">
-          <div class="clearHistoryBox">
-            <span>搜索历史</span>
-            <span v-on:click="clearHistory()">清空</span>
+          <div class="history" v-if="dataShow">
+            <div class="clearHistoryBox">
+              <span>搜索历史</span>
+              <span v-on:click="clearHistory()">清空</span>
+            </div>
+            <div
+              v-for="(item,index) in data"
+              :key="index"
+              class="clearHistoryBoxBrothers"
+              v-on:click="submit1(item)"
+            >{{item}}</div>
           </div>
-          <div v-for="(item,index) in data" :key="index" class="clearHistoryBoxBrothers">{{item}}</div>
-        </div>
         </el-collapse-transition>
       </div>
     </div>
     <el-tabs v-model="first" @tab-click="handleClick" v-if="tabBoolean">
-      <el-tab-pane label="全部" name="first">用户管理</el-tab-pane>
+      <el-tab-pane label="全部" name="first">
+        用户管理
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+      </el-tab-pane>
       <el-tab-pane :label="item.key" :name="item.key" v-for="(item,index) in tabData" :key="index">
         <div v-for="(ele,index1) in divData" :key="index1">{{ele.source.business_person}}</div>
       </el-tab-pane>
@@ -40,10 +89,11 @@
 export default {
   data () {
     return {
-      timer: null,
-      dataShow: false,
-      data: null,
-      tabBoolean: false,
+      divBox: true, // 搜索框向上收缩
+      timer: null, // 点击清空 先触发失去焦点  所以加定时器
+      dataShow: false, // 历史记录框的显示隐藏
+      data: null, // localstro 里取得数据
+      tabBoolean: false, // 搜索结果显示隐藏
       first: 'first',
       tabData: [
         { key: 'cntvfuwuqi', count: 954 },
@@ -501,7 +551,7 @@ export default {
     },
     // 失去焦点
     blur () {
-      console.log('失去焦点')
+      console.log('失去焦点关闭')
       this.timer = setTimeout(() => {
         this.dataShow = false
       }, 150)
@@ -514,7 +564,7 @@ export default {
       this.data = [...new Set(this.data)]
       console.log('去重', this.data)
       if (this.data.length) {
-        console.log('优质')
+        console.log('获取焦点判断localstr有长度 ')
         this.dataShow = true
       }
     },
@@ -524,12 +574,22 @@ export default {
     },
     // 回车触发事件
     submit () {
+      //
+      this.divBox = false
       this.dataShow = false
       console.log('回撤触发', this.state)
-      this.tabBoolean = !this.tabBoolean
+      this.tabBoolean = true
 
       this.arr.push(this.state)
       window.localStorage.setItem('searchHistory', JSON.stringify(this.arr))
+      // 发请求 传this,state
+    },
+    submit1 (item) {
+      console.log('点击触发', item)
+      this.divBox = false
+      this.dataShow = false
+      this.tabBoolean = true
+      // 发请求 传item
     },
     loadAll () {
       return [
@@ -602,6 +662,23 @@ export default {
 </style>
 
 <style scoped>
+.bigBox {
+  background-color: #fafbfd;
+  height: calc(100%);
+  overflow: auto;
+}
+.el-tabs {
+  padding: 20px 80px;
+}
+.divBox1 {
+  width: 100%;
+  height: 200px;
+}
+.divBox2 {
+  width: 100%;
+  height: 50px;
+  transition: height 0.5s;
+}
 .box {
   width: 60%;
   position: relative;
@@ -614,7 +691,7 @@ export default {
   margin-top: 10px;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
   padding: 5px 10px;
-  position:absolute;
+  position: absolute;
   z-index: 99;
   width: 100%;
 }
