@@ -92,6 +92,16 @@ const routes = [
     path: '/slot',
     name: 'slot',
     component: () => import('../views/slot/slot.vue')
+  },
+  {
+    path: '/checkbox',
+    name: 'checkbox',
+    component: () => import('../views/checkbox.vue')
+  },
+  {
+    path: '/echarts1',
+    name: 'echarts1',
+    component: () => import('../views/echarts/index')
   }
 
 ]

@@ -43,7 +43,7 @@ export default {
       count1: state => state.count
     }),
     ...mapGetters({
-
+      // count2: state => state.count
     })
   }
 }

@@ -1,43 +1,49 @@
 <template>
-  <div id="main" style="width: 600px;height:400px;"></div>
+<div class='container'>
+<el-select v-model="value1" multiple placeholder="请选择" @change="change">
+    <el-option
+      v-for="item in options"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value">
+    </el-option>
+  </el-select>
+</div>
 </template>
 
 <script>
-import echarts from 'echarts'
 export default {
   data () {
     return {
-
+      options: [{
+        value: '选项1',
+        label: '黄金糕'
+      }, {
+        value: '选项2',
+        label: '双皮奶'
+      }, {
+        value: '选项3',
+        label: '蚵仔煎'
+      }, {
+        value: '选项4',
+        label: '龙须面'
+      }, {
+        value: '选项5',
+        label: '北京烤鸭'
+      }],
+      value1: [],
+      value2: []
     }
   },
-  mounted () {
-    var myChart = echarts.init(document.getElementById('main'))
-
-    // 指定图表的配置项和数据
-    var option = {
-      title: {
-        text: 'ECharts 入门示例'
-      },
-      tooltip: {},
-      legend: {
-        data: ['销量']
-      },
-      xAxis: {
-        data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-      },
-      yAxis: {},
-      series: [{
-        name: '销量',
-        type: 'bar',
-        data: [5, 20, 36, 10, 10, 20]
-      }]
+  methods: {
+    change () {
+      console.log(this.value1)
     }
-
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option)
   }
+
 }
 </script>
 
-<style>
+<style scoped>
+
 </style>

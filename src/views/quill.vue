@@ -11,6 +11,20 @@
     <button v-on:click="saveHtml">保存</button>
     {{data}}
     <div v-html="content"></div>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p id="filter">1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+
   </div>
 </template>
 
@@ -157,7 +171,7 @@ export default {
     onEditorFocus () {}, // 获得焦点事件
     onEditorChange () {}, // 内容改变事件
     saveHtml: function (event) {
-      console.log(this.content)
+      console.log('111111111', this.content)
     }
   },
   mounted () {
@@ -167,6 +181,11 @@ export default {
       if (!tip) continue
       tip.setAttribute('title', item.title)
     }
+    setTimeout(() => {
+      const msg = document.body.scrollWidth // 滚动高度
+      console.log('msg.scrollTop', msg)
+      window.scrollTo(0, msg)
+    }, 100)
   },
   created () {
     console.log('id=' + this.$route.params.id)

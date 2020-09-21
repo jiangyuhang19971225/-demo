@@ -7,9 +7,10 @@
       drag
       action="https://jsonplaceholder.typicode.com/posts/"
       :multiple="false"
-      :on-change="changeFlie"
+      :on-change="changeFile"
       :before-upload="bfUpload"
       :data="insertProgram"
+      :on-remove="removeFile"
     >
       <i class="el-icon-upload"></i>
       <div class="el-upload__text">
@@ -31,8 +32,12 @@ export default {
     }
   },
   methods: {
+    removeFile () {
+      console.log('文件列表移除')
+    },
     // 文件变动触发方法
-    changeFlie (file, fileList) {
+    changeFile (file, fileList) {
+      console.log('文件变动触发方法')
       console.log('file', file) // 单个对象
       console.log('fileList', fileList) // 数组
     },

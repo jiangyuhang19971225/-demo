@@ -12,7 +12,7 @@
       <router-link to="/uploadImg">上传图片</router-link>|
       <!-- <router-link to="/quill">富文本</router-link> -->
       <el-button type="success" @click="click">富文本</el-button>|
-<router-link to="/slot">
+      <router-link to="/slot">
         <el-button>插槽的使用</el-button>|
       </router-link>
       <router-link to="/input">
@@ -20,12 +20,19 @@
       </router-link>
 
       <router-link to="/liu">刘</router-link>
-      <router-link to="/vuex"><h3> vuex</h3></router-link>
-
+      <router-link to="/vuex">
+        <h3>vuex</h3>
+      </router-link>
     </div>
+    <div class="two" style="background-color:#fcf">
+      <router-link to="/checkbox">多选框</router-link>
+    </div>
+    <router-link to="/echarts1">
+      <el-button type="success" plain>echarts图表</el-button>
+    </router-link>
     <div class="content">
-      <hr>
-    <router-view style="margin-top:50px"/>
+      <hr />
+      <router-view style="margin-top:50px" />
     </div>
   </div>
 </template>
@@ -76,6 +83,6 @@ export default {
   // background-color: rgb(240, 231, 231);
 }
 div {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 </style>
