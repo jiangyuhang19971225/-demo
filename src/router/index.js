@@ -102,6 +102,16 @@ const routes = [
     path: '/echarts1',
     name: 'echarts1',
     component: () => import('../views/echarts/index')
+  },
+  {
+    path: '/echarts2',
+    name: 'echarts2',
+    component: () => import('../views/echarts/newEcharts.vue')
+  },
+  {
+    path: '/numAdd',
+    name: 'numAdd',
+    component: () => import('../views/numAdd/index')
   }
 
 ]

@@ -10,7 +10,7 @@
       <router-link to="/elupload" style="color:red;font-size:16px">上传文件</router-link>|
       <router-link to="/pagination">分页</router-link>|
       <router-link to="/uploadImg">上传图片</router-link>|
-      <!-- <router-link to="/quill">富文本</router-link> -->
+
       <el-button type="success" @click="click">富文本</el-button>|
       <router-link to="/slot">
         <el-button>插槽的使用</el-button>|
@@ -29,10 +29,17 @@
     </div>
     <router-link to="/echarts1">
       <el-button type="success" plain>echarts图表</el-button>
+
+    </router-link>
+     <router-link to="/echarts2">
+      <el-button type="success" plain>NEWecharts图表</el-button>
+    </router-link>
+    <router-link to="/numAdd">
+      <el-button type="success" plain>数组增长countup.js</el-button>
     </router-link>
     <div class="content">
       <hr />
-      <router-view style="margin-top:50px" />
+      <router-view  />
     </div>
   </div>
 </template>
@@ -67,7 +74,7 @@ export default {
 }
 
 #nav {
-  padding: 30px;
+  // padding: 30px;
 
   a {
     font-weight: bold;
@@ -79,8 +86,8 @@ export default {
   }
 }
 .content {
-  padding: 50px;
-  // background-color: rgb(240, 231, 231);
+ width: 100%;
+ height: 100%;
 }
 div {
   box-sizing: border-box;
