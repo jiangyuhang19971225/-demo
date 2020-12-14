@@ -112,6 +112,17 @@ const routes = [
     path: '/numAdd',
     name: 'numAdd',
     component: () => import('../views/numAdd/index')
+  },
+  {
+    path: '/qrcodejs2',
+    name: 'qrcodejs2',
+    component: () => import('../views/qrcodejs2/index')
+  },
+
+  {
+    path: '/elmenu',
+    name: 'elmenu',
+    component: () => import('../views/el-meun.vue')
   }
 
 ]

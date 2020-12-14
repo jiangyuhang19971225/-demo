@@ -7,8 +7,13 @@ import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import JsonExcel from 'vue-json-excel'
 import '../static/JD_base.css'
+import '../src/assets/icon/iconfont.css'
 // 富文本
 import VueQuillEditor from 'vue-quill-editor'
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'
+
+Vue.use(iView)
 
 Vue.use(VueQuillEditor)
 require('./mock.js')

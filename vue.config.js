@@ -1,4 +1,18 @@
 module.exports = {
+  pwa: {
+    iconPaths: {
+      favicon32: 'tubiao.ico',
+      favicon16: 'tubiao.ico',
+      appleTouchIcon: 'tubiao.ico',
+      maskIcon: 'tubiao.ico',
+      msTileImage: 'tubiao.ico'
+    }
+  },
+
+  publicPath: './',
+  outputDir: 'dist',
+  assetsDir: 'static',
+
   //   productionSourceMap: false,
 
   devServer: {

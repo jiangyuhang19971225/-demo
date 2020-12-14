@@ -1,0 +1,30 @@
+{
+  "id": "2106792",
+  "name": "no name",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2284741",
+      "name": "cpu_icon",
+      "font_class": "cpu_icon",
+      "unicode": "e6ab",
+      "unicode_decimal": 59051
+    },
+    {
+      "icon_id": "17485639",
+      "name": "CPU",
+      "font_class": "xingzhuang-copy",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "7983612",
+      "name": "CPU",
+      "font_class": "xingzhuang",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    }
+  ]
+}
